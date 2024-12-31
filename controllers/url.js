@@ -17,3 +17,14 @@ export const genrateShortUrlHandler = async (req, res) => {
 		console.log(error);
 	}
 };
+
+export const getAnalyticsHandler = async (req, res) => {
+	const { shortId } = req.params;
+
+	const result = await URL.findOne({ shortId });
+
+	return res.json({
+		totalClicks: result.analytics.length,
+		analytics: result.analytics,
+	});
+};

@@ -10,9 +10,9 @@ export const genrateShortUrlHandler = async (req, res) => {
 			shortId,
 			redirectUrl,
 			analytics: [],
+			createdBy: req.user._id,
 		});
-
-		return res.status(200).json({ id: shortId });
+		return res.render("home", { id: shortId });
 	} catch (error) {
 		console.log(error);
 	}

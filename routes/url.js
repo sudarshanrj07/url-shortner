@@ -18,6 +18,7 @@ router.get("/:shortId", async (req, res) => {
 			},
 		}
 	);
+	if (!entry) return res.redirect("/");
 	res.redirect(entry.redirectUrl);
 });
 

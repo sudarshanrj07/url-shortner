@@ -19,11 +19,12 @@ export const loginHandler = async (req, res) => {
 		email,
 		password,
 	});
-
+	console.log(user);
 	if (!user) return res.render("login", { error: "Invalid credentials" });
 
 	const token = setUser(user);
-	res.cookie("jwt", token);
+	console.log(token);
+	res.cookie("token", token);
 
 	res.redirect("/");
 };
